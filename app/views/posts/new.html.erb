@@ -1,0 +1,6 @@
+<h3>Creating New Post</h3>
+<hr/>
+<%= form_for [@group, @post] do |post| %>
+	<p>Post: <%= post.text_field :content %></p>
+	<p><%= post.submit "Post", :class => "btn btn-primary" %></p>
+<% end %>

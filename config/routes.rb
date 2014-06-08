@@ -1,6 +1,8 @@
 Rails1011::Application.routes.draw do
 
-  resources :groups
+  resources :groups do
+    resources :posts
+  end
   root :to => "groups#index" 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -2,5 +2,12 @@
 
 <p><%= @group.title %></p>
 <p><%= @group.description %></p>
+<hr/>
+<% @post.each do |post| %>
+	<p>Post: <%= post.content %></p>
+	<p><%= link_to "Edit", edit_group_post_path(post.group, post) %> | <%= link_to "Delete", group_post_path(post.group, post), method: :delete, data: { confirm: "Are you sure?"} %></p>
+	<hr/>
+<% end %>
 
+<%= link_to "New Post", new_group_post_path(@group), :class => "btn btn-primary" %>
 <%= link_to "Back", groups_path, :class => "btn btn-primary" %>
