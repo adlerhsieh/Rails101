@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_action :set_group
+	before_action :login_required, :only => [:edit, :update, :new, :create, :destroy]
 
 	def new
 		@post = @group.posts.build

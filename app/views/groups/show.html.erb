@@ -4,7 +4,7 @@
 <p><%= @group.description %></p>
 <hr/>
 <% @post.each do |post| %>
-	<p>Post: <%= post.content %></p>
+	<p><%= post.content %></p>
 	<p><%= link_to "Edit", edit_group_post_path(post.group, post) %> | <%= link_to "Delete", group_post_path(post.group, post), method: :delete, data: { confirm: "Are you sure?"} %></p>
 	<hr/>
 <% end %>
