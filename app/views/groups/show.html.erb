@@ -11,5 +11,5 @@
 	<% end %>
 <% end %>
 
-<%= link_to "New Post", new_group_post_path(@group), :class => "btn btn-primary" %>
+<%= link_to "New Post", new_group_post_path(@group), :class => "btn btn-primary" if current_user.is_member_of?(@group) %>
 <%= link_to "Back", groups_path, :class => "btn btn-primary" %>
