@@ -7,7 +7,10 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = @group.posts.new(post_params)
+		@post = current_user.posts.new(post_params)
+		@post.author = current_user
+		@post.group = @group
+		#don't know why need this line to save group_id attribute
 		if @post.save
 			redirect_to group_path(@group)
 		else
@@ -16,11 +19,11 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@post = @group.posts.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 	end
 
 	def update
-		@post = @group.posts.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 		if @post.update(post_params)
 			redirect_to group_path(@group)
 		else
@@ -29,7 +32,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@post = @group.posts.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 		@post.destroy
 		redirect_to group_path(@group)
 	end
