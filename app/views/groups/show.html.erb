@@ -10,6 +10,7 @@
 	<hr/>
 	<% end %>
 <% end %>
-
-<%= link_to "New Post", new_group_post_path(@group), :class => "btn btn-primary" if current_user.is_member_of?(@group) %>
+<% if current_user && current_user.is_member_of?(@group) %>
+<%= link_to "New Post", new_group_post_path(@group), :class => "btn btn-primary" %>
+<% end %>
 <%= link_to "Back", groups_path, :class => "btn btn-primary" %>
