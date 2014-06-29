@@ -56,12 +56,12 @@ class GroupsController < ApplicationController
 
 	def quit
 		@group = Group.find(params[:id])
-		if !cuttent_user.is_member_of(@group)
+		if current_user.is_member_of?(@group)
 			current_user.quit!(@group)
 		else
 			flash[:notice] = "You are not a member"
 		end
-		edirect_to group_path(@group)
+		redirect_to group_path(@group)
 	end
 
 

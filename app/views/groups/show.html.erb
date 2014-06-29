@@ -1,7 +1,7 @@
-<h1>Group Details</h1>
-
-<p><%= @group.title %></p>
-<p><%= @group.description %></p>
+<h3><%= @group.title %></h3>
+<% if current_user %>
+<%= link_to "Join", join_group_path(@group), method: :post, :class => "btn btn-primary" %>  <%= link_to "Quit", quit_group_path(@group), method: :post, :class => "btn btn-primary" %>
+<% end %>
 <hr/>
 <% @post.each do |post| %>
 	<p><%= post.content %></p>
