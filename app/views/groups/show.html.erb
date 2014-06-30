@@ -1,7 +1,5 @@
 <h3><%= @group.title %></h3>
-<% if current_user %>
-<%= link_to "Join", join_group_path(@group), method: :post, :class => "btn btn-primary" %>  <%= link_to "Quit", quit_group_path(@group), method: :post, :class => "btn btn-primary" %>
-<% end %>
+<%= render template: "groups/_join_or_quit" %>
 <hr/>
 <% @post.each do |post| %>
 	<p><%= post.content %></p>

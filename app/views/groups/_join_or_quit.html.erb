@@ -1,0 +1,7 @@
+<% if current_user %>
+	<% if !current_user.is_member_of?(@group)%>
+		<%= link_to "Join", join_group_path(@group), method: :post, :class => "btn btn-primary" %>
+	<% else %>
+		<%= link_to "Quit", quit_group_path(@group), method: :post, :class => "btn btn-primary" %>
+	<% end %>
+<% end %>
