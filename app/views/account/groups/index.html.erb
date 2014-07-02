@@ -1,0 +1,15 @@
+<h3><%= current_user.name %>'s Groups</h3>
+<p>You participate into <%= @group.count %> groups</p>
+<% @group.each do |group| %>
+	<h4><%= link_to group.title, group_path(group) %></h4>
+	<p><%= group.description %></p>
+<% end %>
+<hr/>
+
+<h3><%= current_user.name %>'s Posts</h3>
+<p>You have <%= @post.count %> posts</p>
+<% @post.each do |post| %>
+	<p><%= post.group.title %>: <%= post.content %></p>
+<% end %>
+<br/>
+<%= link_to "Back", groups_path, :class => "btn btn-primary" %>
